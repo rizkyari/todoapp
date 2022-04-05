@@ -28,7 +28,25 @@ export const postDataError = () => ({
     type : type.add_data_error,
 })
 
+export const updateData = (idx,title,description) => ({
+    type : type.update_data,
+    idx,
+    title,
+    description,
+})
+
+
 export const visibleForm = (status) => ({
     type: type.enable_form,
     status
+})
+
+export const choosenIndex = (index) => ({
+    type: type.choosen_index,
+    index
+})
+
+export const editForm = (show) => ({
+    type: type.enable_edit_form,
+    show
 })
