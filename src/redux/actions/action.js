@@ -14,4 +14,21 @@ export const getDataError = (error) => ({
     error
 })
 
+export const postData = (title,description) => ({
+    type : type.add_data,
+    title,
+    description
+})
 
+export const postDataSuccess = () => ({
+    type : type.add_data_success,
+})
+
+export const postDataError = () => ({
+    type : type.add_data_error,
+})
+
+export const visibleForm = (status) => ({
+    type: type.enable_form,
+    status
+})
