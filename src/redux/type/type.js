@@ -14,6 +14,8 @@ const delete_data = "DELETE_DATA";
 const delete_data_success = "DELETE_DATA_SUCCESS";
 const delete_data_error = "DELETE_DATA_ERROR";
 
+const finish_task = "FINISH_TASK";
+
 const choosen_index = "CHOOSEN_INDEX";
 const enable_form = "ENABLE_FORM";
 const enable_edit_form = "ENABLE_EDIT_FORM"
@@ -31,6 +33,7 @@ export{
     delete_data,
     delete_data_success,
     delete_data_error,
+    finish_task,
     enable_form,
     choosen_index,
     enable_edit_form,

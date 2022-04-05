@@ -38,7 +38,11 @@ const Modal = props => {
                         formEdit === true ? (
                             <input type='text' placeholder={list[index].title} onChange={(e)=>editTitles(e)}/>
                         ) : (
-                            <h4 className="modal-title">{list[index].title}</h4>
+                            <div>
+                                <h4 className="modal-title">Title : </h4>
+                                <div>{list[index].title}</div>
+                            </div>
+                            
                         )
                     }
                 </div>
@@ -47,7 +51,10 @@ const Modal = props => {
                         formEdit === true ? (
                             <input type='text' placeholder={list[index].description} onChange={(e)=>editDescs(e)}/>
                         ) : (
-                            <h4 className="modal-title">{list[index].description}</h4>
+                            <div>
+                                <h4 className="modal-title">Desc : </h4>
+                                <div>{list[index].description}</div>
+                            </div>
                         )
                     }
                 </div>
@@ -56,10 +63,10 @@ const Modal = props => {
                         formEdit === true ? (
                             <button onClick={handleClick}>Submit</button>
                         ) : (
-                            <div className="modal-title">
-                                <button onClick={() => editForm(true)}  className="button">Edit</button>
-                                {list[index].status === 1 ? '' : (<button onClick={handleDelete} className="button">Delete</button>)}
-                                <button onClick={props.onClose} className="button">Close</button>
+                            <div className="modal-button">
+                                <button onClick={() => editForm(true)}  className="button green">Edit</button>
+                                {list[index].status === 1 ? '' : (<button onClick={handleDelete} className="button red">Delete</button>)}
+                                <button onClick={props.onClose} className="button yellow">Close</button>
                             </div>
                         )
                     }

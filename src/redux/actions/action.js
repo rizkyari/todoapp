@@ -40,6 +40,11 @@ export const deleteData = (index) => ({
     index,
 })
 
+export const finishTask = (index) => ({
+    type: type.finish_task,
+    index
+})
+
 export const visibleForm = (status) => ({
     type: type.enable_form,
     status
