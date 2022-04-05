@@ -33,14 +33,7 @@ const rootReducer = (state =  initialState, action) =>
                 status: 0,
                 createdAt: new Date().toLocaleDateString()
               });
-              break;
-            case type.add_data_success:
-              draft.isSuccess = true;
-              draft.isLoading = false;
-              break;
-            case type.add_data_error:
-              draft.isError = true;
-              draft.isSuccess = false;
+              draft.form = false;
               break;
             case type.enable_form:
               draft.form = action.status;
@@ -56,6 +49,9 @@ const rootReducer = (state =  initialState, action) =>
               draft.datas[action.idx].description = action.description;  
               draft.formEdit = false;
               break;
+            case type.delete_data: 
+              draft.datas.splice(action.index, 1);
+              break;  
             default:
                 break;
       }

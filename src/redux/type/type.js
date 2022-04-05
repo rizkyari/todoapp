@@ -10,6 +10,10 @@ const update_data = "UPDATE_DATA";
 const update_data_success = "UPDATE_DATA_SUCCESS";
 const update_data_error = "UPDATE_DATA_ERROR";
 
+const delete_data = "DELETE_DATA";
+const delete_data_success = "DELETE_DATA_SUCCESS";
+const delete_data_error = "DELETE_DATA_ERROR";
+
 const choosen_index = "CHOOSEN_INDEX";
 const enable_form = "ENABLE_FORM";
 const enable_edit_form = "ENABLE_EDIT_FORM"
@@ -24,6 +28,9 @@ export{
     update_data,
     update_data_success,
     update_data_error,
+    delete_data,
+    delete_data_success,
+    delete_data_error,
     enable_form,
     choosen_index,
     enable_edit_form,
