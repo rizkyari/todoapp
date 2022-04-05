@@ -35,6 +35,10 @@ export const updateData = (idx,title,description) => ({
     description,
 })
 
+export const deleteData = (index) => ({
+    type: type.delete_data,
+    index,
+})
 
 export const visibleForm = (status) => ({
     type: type.enable_form,

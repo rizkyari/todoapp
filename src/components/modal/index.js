@@ -5,7 +5,7 @@ import * as action from "../../redux/actions/action";
 
 const Modal = props => {
     
-    const{list,index, updateData, formEdit, editForm} = props
+    const{list,index, updateData, formEdit, editForm, deleteData} = props
     const[editTitle,setEditTitle] = useState('');
     const[editDesc,setEditDesc] = useState('');
 
@@ -22,6 +22,11 @@ const Modal = props => {
         editForm(false);
     }
 
+    const handleDelete = () => {
+        deleteData(index);
+        props.onClose();
+    }
+
     if(!props.show){
         return null
     }
@@ -31,7 +36,7 @@ const Modal = props => {
                 <div className="modal-header">
                     {
                         formEdit === true ? (
-                            <input type='text' placeholder="edit title" placeholder={list[index].title} onChange={(e)=>editTitles(e)}/>
+                            <input type='text' placeholder={list[index].title} onChange={(e)=>editTitles(e)}/>
                         ) : (
                             <h4 className="modal-title">{list[index].title}</h4>
                         )
@@ -40,7 +45,7 @@ const Modal = props => {
                 <div className="modal-body">
                     {
                         formEdit === true ? (
-                            <input type='text' placeholder="edit Description" placeholder={list[index].description} onChange={(e)=>editDescs(e)}/>
+                            <input type='text' placeholder={list[index].description} onChange={(e)=>editDescs(e)}/>
                         ) : (
                             <h4 className="modal-title">{list[index].description}</h4>
                         )
@@ -53,6 +58,7 @@ const Modal = props => {
                         ) : (
                             <div className="modal-title">
                                 <button onClick={() => editForm(true)}  className="button">Edit</button>
+                                {list[index].status === 1 ? '' : (<button onClick={handleDelete} className="button">Delete</button>)}
                                 <button onClick={props.onClose} className="button">Close</button>
                             </div>
                         )
@@ -74,7 +80,8 @@ const mapStateToProps = (state) => {
   function mapDispatchToProps(dispatch){
   return{
     updateData: (idx,title,desc) => dispatch(action.updateData(idx,title,desc)),
-    editForm: (show) => dispatch(action.editForm(show))
+    editForm: (show) => dispatch(action.editForm(show)),
+    deleteData: (index) => dispatch(action.deleteData(index))
   }
   }
 
