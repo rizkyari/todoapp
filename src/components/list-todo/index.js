@@ -1,8 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import './index.css';
+import Modal from "../modal/index";
+import { connect } from "react-redux";
+import * as action from "../../redux/actions/action";
 
 const ListTodo = (props) => {
-    const {list } = props;
+    const {idx, choosenIndex, list } = props;
+    const[show, setShow] = useState(false);
+
+    const openDetail = (i) => {
+        setShow(true);
+        choosenIndex(i)
+    }
     return (
         <div>
             <div className="list-column">
@@ -13,7 +22,7 @@ const ListTodo = (props) => {
                     {list.map((item,i)=>{
                         return(
                             <div key={i}>
-                                <div>
+                                <div onClick={()=>openDetail(i)} className="list-todo">
                                     {item.status === 0 ? item.title : ""}
                                 </div>
                                 
@@ -28,8 +37,7 @@ const ListTodo = (props) => {
                     {list.map((item,i)=>{
                         return(
                             <div key={i}>
-                                
-                                <div>
+                                <div onClick={()=>openDetail(i)} className="list-todo">
                                     {item.status === 1 ? item.title : ""}
                                 </div>
                             </div>
@@ -37,8 +45,22 @@ const ListTodo = (props) => {
                     })}
                 </div>
             </div>
+            <Modal onClose={() => setShow(false)} show={show} index={idx} list={list}/>
         </div>
     )
 }
 
-export default ListTodo;
+
+const mapStateToProps = (state) => {
+    return {
+        idx: state.idx,
+    };
+  };
+  
+  function mapDispatchToProps(dispatch){
+  return{
+    choosenIndex: (index) => dispatch(action.choosenIndex(index))
+  }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListTodo);

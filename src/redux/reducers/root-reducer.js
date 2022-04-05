@@ -3,6 +3,8 @@ import * as type from "../type/type";
 export const initialState = {
     datas:[],
     form: false,
+    formEdit: false,
+    idx: null,
     isLoading: false,
     isSuccess: false,
     isError: false,
@@ -42,6 +44,17 @@ const rootReducer = (state =  initialState, action) =>
               break;
             case type.enable_form:
               draft.form = action.status;
+              break;
+            case type.choosen_index:
+              draft.idx = action.index;
+              break;
+            case type.enable_edit_form:
+              draft.formEdit = action.show;
+              break;
+            case type.update_data:
+              draft.datas[action.idx].title = action.title;
+              draft.datas[action.idx].description = action.description;  
+              draft.formEdit = false;
               break;
             default:
                 break;
