@@ -52,6 +52,9 @@ const rootReducer = (state =  initialState, action) =>
             case type.delete_data: 
               draft.datas.splice(action.index, 1);
               break;  
+            case type.finish_task:
+              draft.datas[action.index].status = 1;
+              break;
             default:
                 break;
       }

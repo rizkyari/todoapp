@@ -1,20 +1,42 @@
 .list-column{
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
+.title-list{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 .list-undone{
-    border: solid 1px black;
     margin-right: 10px;
     padding: 10px;
+    background-color: skyblue;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 300px;
 }
 
 .list-done{
-    border: solid 1px black;
     margin-left: 10px;
     padding: 10px;
+    background-color: rgb(21, 201, 186);
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    width: 300px;
 }
 
 .list-todo{
     cursor: pointer;
+}
+
+.undone{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.undone:hover, .done:hover{
+    font-size: 18px;
 }

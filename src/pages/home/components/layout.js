@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import { connect } from "react-redux";
 import * as action from "../../../redux/actions/action";
-
+import './index.css';
 import Title from "../../../components/title/index";
 import ListTodo from "../../../components/list-todo/index";
 import FormAdd from "../../../components/form-add/index";
@@ -21,7 +21,7 @@ const Home = (props) => {
             <Title text={'My To Do List'}/>
             {
                 formStatus === true ? '' : (
-                    <button onClick={hideForm}>Add To Do List</button>
+                    <button onClick={hideForm} className="button-form">Add To Do List</button>
                 )
             }
             <FormAdd />
